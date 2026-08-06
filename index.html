@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastion Bridge Capital | Private Equity</title>
+<meta name="description" content="Bastion Bridge Capital is a private equity firm acquiring and building durable, cash-generative businesses through dedicated special purpose vehicles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#232323;          /* charcoal (dark sections) */
+  --navy-2:#2E2E2C;        /* raised charcoal panel */
+  --navy-3:#3B3A37;        /* hover / border on dark */
+  --ink:#26251F;           /* body ink on light (warm near-black) */
+  --paper:#F4F1EB;         /* stone grey / warm light base */
+  --paper-2:#E8E3D9;       /* deeper stone panel */
+  --slate:#6E685E;         /* secondary text (warm grey) */
+  --gold:#A65A3A;          /* rust / clay accent */
+  --gold-2:#C0714E;        /* clay accent on dark */
+  --line:#2323231A;        /* hairline light */
+  --line-mid:#23232333;
+  --line-strong:#232323;
+  --line-dk:rgba(244,241,235,.16);   /* hairline on dark */
+  --line-dk-2:rgba(244,241,235,.24);
+  --disp:'Geist','Inter','Helvetica Neue',Arial,sans-serif;
+  --serif:'Cormorant Garamond','Georgia',serif;
+  --sans:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.7;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;}
+::selection{background:var(--navy);color:var(--paper);}
+img{display:block;max-width:100%;}
+
+/* ---- Type ---- */
+h1,h2,h3,h4{font-family:var(--disp);color:var(--navy);letter-spacing:-0.02em;line-height:1.04;font-weight:700;}
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:14px;margin-bottom:24px;}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);}
+.eyebrow.on-dark{color:var(--gold-2);}
+.eyebrow.on-dark::before{background:var(--gold-2);}
+
+/* ---- Nav ---- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:22px 56px;transition:padding .4s ease,background .4s ease,box-shadow .4s ease,border-color .4s ease;
+  border-bottom:1px solid transparent;}
+nav.solid{padding:15px 56px;background:rgba(251,250,246,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 1px 30px rgba(35,35,35,.06);}
+.wordmark{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:.14em;color:var(--paper);text-decoration:none;cursor:pointer;white-space:nowrap;text-transform:uppercase;transition:color .4s ease;}
+nav.solid .wordmark{color:var(--navy);}
+.wordmark .div{color:var(--gold-2);}
+nav.solid .wordmark .div{color:var(--gold);}
+.nav-links{display:flex;gap:42px;align-items:center;list-style:none;}
+.nav-links a{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,250,246,.9);text-decoration:none;cursor:pointer;position:relative;padding:4px 0;transition:color .25s ease;}
+nav.solid .nav-links a{color:var(--ink);}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--gold);transition:right .3s ease;}
+.nav-links a:hover::after,.nav-links a.active::after{right:0;}
+.nav-links a.active{color:var(--paper);}
+nav.solid .nav-links a.active{color:var(--navy);}
+.nav-links a.cta{color:var(--gold-2);letter-spacing:.14em;}
+nav.solid .nav-links a.cta{color:var(--gold);}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);}
+nav.solid .menu-btn{color:var(--navy);}
+
+/* ---- Shell ---- */
+.page{display:none;}
+.page.visible{display:block;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 56px;}
+.wrap-tight{max-width:1080px;margin:0 auto;padding:0 56px;}
+section{padding:110px 0;}
+
+/* ---- Buttons ---- */
+.btn{display:inline-flex;align-items:center;gap:11px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:16px 30px;text-decoration:none;cursor:pointer;border:none;background:var(--navy);color:var(--paper);transition:background .3s ease,transform .25s ease,box-shadow .3s ease;box-shadow:none;}
+.btn::after{content:"\2192";font-size:14px;transition:transform .25s ease;}
+.btn:hover{background:var(--navy-2);}
+.btn:hover::after{transform:translateX(4px);}
+.btn.gold{background:var(--gold);color:var(--paper);}
+.btn.gold:hover{background:var(--gold-2);}
+.btn.ghost{background:transparent;color:var(--navy);box-shadow:none;padding:16px 0;border-bottom:2px solid var(--navy);}
+.btn.ghost::after{content:"\2192";}
+.btn.ghost:hover{background:transparent;color:var(--gold);border-bottom-color:var(--gold);transform:none;}
+.btn.on-dark{background:var(--gold);color:var(--navy);}
+.btn.on-dark:hover{background:var(--gold-2);}
+.btn.ghost-dk{background:transparent;color:var(--paper);box-shadow:none;padding:16px 0;border-bottom:2px solid var(--gold-2);}
+.btn.ghost-dk:hover{color:var(--gold-2);transform:none;}
+
+/* ---- HERO ---- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--navy);overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.42;filter:grayscale(1) contrast(1.08);}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg, var(--navy) 0%, rgba(35,35,35,.92) 38%, rgba(35,35,35,.55) 70%, rgba(35,35,35,.38) 100%);}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:150px 56px 90px;}
+.hero .eyebrow{color:var(--gold-2);}
+.hero .eyebrow::before{background:var(--gold-2);}
+.hero h1{color:var(--paper);font-size:clamp(42px,5.8vw,84px);line-height:1.0;font-weight:800;letter-spacing:-0.035em;max-width:13em;}
+.hero h1 .accent{color:var(--gold-2);}
+.hero-sub{margin-top:32px;font-size:17px;line-height:1.75;color:rgba(251,250,246,.82);max-width:36em;font-weight:400;}
+.hero-actions{margin-top:44px;display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
+.hero-stats{margin-top:70px;display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--line-dk);max-width:760px;}
+.hero-stats .s{padding:26px 40px 0 0;margin-right:40px;border-right:1px solid var(--line-dk);}
+.hero-stats .s:last-child{border-right:none;margin-right:0;padding-right:0;}
+.hero-stats .s .v{font-family:var(--disp);font-size:clamp(22px,2.4vw,30px);font-weight:600;color:var(--paper);letter-spacing:-0.01em;line-height:1;}
+.hero-stats .s .l{margin-top:9px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,250,246,.6);}
+
+/* ---- Section head ---- */
+.shead{max-width:44em;margin-bottom:56px;}
+.shead h2{font-size:clamp(30px,3.8vw,50px);line-height:1.02;letter-spacing:-0.03em;}
+.shead.center{margin-left:auto;margin-right:auto;text-align:center;}
+.shead.center .eyebrow{display:inline-flex;}
+
+/* ---- Intro split ---- */
+.intro{display:grid;grid-template-columns:0.85fr 1.15fr;gap:90px;align-items:start;}
+.intro-l h2{font-size:clamp(30px,3.6vw,48px);line-height:1.02;letter-spacing:-0.03em;}
+.intro-l .tag{margin-top:26px;font-size:14px;color:var(--slate);max-width:22em;line-height:1.7;}
+.intro-r p{margin-bottom:22px;font-size:16.5px;color:#2C3440;line-height:1.75;}
+.intro-r p strong{font-weight:600;color:var(--navy);}
+.intro-r p:last-child{margin-bottom:0;}
+.intro-r .big{font-family:var(--disp);font-weight:700;font-size:clamp(21px,2.3vw,28px);line-height:1.22;letter-spacing:-0.02em;color:var(--navy);margin-bottom:28px;}
+
+/* ---- Principles (open, numbered, generous) ---- */
+.principles{margin-top:84px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:56px;row-gap:52px;}
+.p-cell{padding:26px 0 0;border-top:2px solid var(--navy);}
+.p-cell .n{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--gold);}
+.p-cell h3{font-size:21px;margin:16px 0 12px;letter-spacing:-0.02em;}
+.p-cell p{font-size:14.5px;color:#333B47;line-height:1.65;}
+
+/* ---- DARK feature band ---- */
+.dark{position:relative;background:var(--navy);color:var(--paper);overflow:hidden;}
+.dark .eyebrow{color:var(--gold-2);}
+.dark .eyebrow::before{background:var(--gold-2);}
+.dark h2{color:var(--paper);}
+.band-split{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;min-height:600px;}
+.band-copy{padding:110px 70px 110px 0;display:flex;flex-direction:column;justify-content:center;
+  padding-left:max(56px, calc((100vw - 1280px)/2 + 56px));}
+.band-copy h2{font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-0.03em;max-width:15em;}
+.band-copy p{margin-top:26px;font-size:16.5px;color:rgba(251,250,246,.82);line-height:1.75;max-width:34em;}
+.band-copy p + p{margin-top:18px;}
+.band-copy .actions{margin-top:40px;}
+.band-img{position:relative;overflow:hidden;}
+.band-img img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.9;}
+.band-img::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(35,35,35,.2) 30%,transparent 60%);z-index:1;}
+.band-statement{padding:120px 0;}
+.band-statement .bs-inner{max-width:760px;}
+.band-statement h2{font-size:clamp(30px,3.8vw,50px);line-height:1.02;letter-spacing:-0.03em;margin-top:6px;}
+.band-statement p{margin-top:26px;font-size:17px;color:rgba(251,250,246,.82);line-height:1.75;max-width:40em;}
+.band-statement .actions{margin-top:38px;}
+
+/* ---- SPV model (dark, structured) ---- */
+.model{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;}
+.model .step{padding:34px 34px 34px 0;position:relative;}
+.model .step + .step{border-left:1px solid var(--line-dk);padding-left:34px;}
+.model .step .num{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--gold-2);margin-bottom:20px;}
+.model .step h3{color:var(--paper);font-size:19px;letter-spacing:-0.02em;margin-bottom:12px;}
+.model .step p{font-size:13.5px;color:rgba(251,250,246,.72);line-height:1.62;}
+
+/* ---- Approach / strategies index ---- */
+.idx-list{border-top:1px solid var(--line-mid);}
+.idx-row{display:grid;grid-template-columns:72px 3fr 6fr auto;gap:40px;align-items:center;padding:38px 4px;border-bottom:1px solid var(--line);cursor:default;transition:background .3s ease,padding-left .3s ease;}
+.idx-row:hover{background:var(--paper-2);padding-left:20px;}
+.idx-row .num{font-family:var(--disp);font-size:17px;font-weight:700;color:var(--gold);}
+.idx-row h3{font-size:26px;letter-spacing:-0.025em;line-height:1.05;}
+.idx-row p{font-size:14.5px;color:#333B47;line-height:1.6;}
+.idx-row .arrow{font-size:18px;color:var(--gold);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-6px);}
+.idx-row:hover .arrow{opacity:1;transform:none;}
+
+/* ---- Stat strip (dark, big numbers) ---- */
+.stats-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--navy);border-top:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk);}
+.stats-band .st{background:var(--navy);padding:64px 48px;text-align:center;}
+.stats-band .st + .st{border-left:1px solid var(--line-dk);}
+.stats-band .st .v{font-family:var(--disp);font-size:clamp(40px,5vw,64px);font-weight:600;color:var(--paper);letter-spacing:-0.02em;line-height:1;}
+.stats-band .st .v em{color:var(--gold-2);font-style:normal;}
+.stats-band .st .l{margin-top:16px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,250,246,.6);}
+
+/* ---- Quote ---- */
+.quote{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.quote .inner{max-width:900px;margin:0 auto;text-align:center;}
+.quote blockquote{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3.4vw,44px);line-height:1.12;letter-spacing:-0.03em;color:var(--navy);}
+.quote blockquote .q{color:var(--gold);}
+.quote .attr{margin-top:28px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--slate);}
+
+/* ---- Page head ---- */
+.page-head{position:relative;background:var(--navy);color:var(--paper);padding:190px 0 90px;overflow:hidden;}
+.page-head::after{content:none;}
+.page-head .wrap{position:relative;z-index:2;}
+.page-head .eyebrow{color:var(--gold-2);}
+.page-head .eyebrow::before{background:var(--gold-2);}
+.page-head h1{color:var(--paper);font-size:clamp(34px,4.6vw,62px);font-weight:800;letter-spacing:-0.03em;line-height:1.0;max-width:15em;}
+.page-head p{color:rgba(251,250,246,.8);margin-top:24px;max-width:42em;font-size:16.5px;}
+
+/* ---- Strategy detail ---- */
+.svc{display:grid;grid-template-columns:0.9fr 2.1fr;gap:70px;align-items:start;padding:64px 0;border-bottom:1px solid var(--line);}
+.svc:last-of-type{border-bottom:none;}
+.svc .idx{font-family:var(--disp);font-size:14px;font-weight:700;color:var(--gold);margin-bottom:14px;letter-spacing:.06em;}
+.svc h2{font-size:clamp(24px,2.6vw,34px);line-height:1.04;letter-spacing:-0.03em;}
+.svc-body p{font-size:16.5px;color:#2C3440;line-height:1.75;}
+
+/* ---- Team ---- */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.partner-solo{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:center;}
+.partner-solo .member .photo{aspect-ratio:4/5;}
+.partner-solo .member h3{font-size:30px;}
+.member{}
+.member .photo{width:100%;aspect-ratio:4/5;background:var(--paper-2);overflow:hidden;position:relative;box-shadow:none;border:1px solid var(--line);}
+.member .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.1);transition:filter .5s ease,transform .8s ease;}
+.member:hover .photo img{filter:grayscale(0);transform:scale(1.02);}
+.member .photo.ph{display:flex;align-items:center;justify-content:center;color:var(--slate);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-align:center;}
+.member h3{font-size:27px;margin-top:28px;letter-spacing:-0.025em;}
+.member .role{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:10px 0 20px;padding-bottom:20px;border-bottom:1px solid var(--line);}
+.member p{font-size:15px;color:#2C3440;line-height:1.72;margin-bottom:14px;}
+.member p:last-child{margin-bottom:0;}
+
+.analysts{margin-top:100px;padding-top:56px;border-top:1px solid var(--line);}
+.analyst-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
+.member.analyst .photo{aspect-ratio:1/1;}
+.member.analyst h3{font-size:21px;margin-top:22px;}
+.member.analyst .role{font-size:10.5px;margin:9px 0 16px;padding-bottom:16px;}
+.member.analyst p{font-size:14px;}
+.uw{margin-top:96px;}
+.uw .uw-statement{font-family:var(--disp);font-weight:700;font-size:clamp(24px,2.9vw,38px);line-height:1.12;letter-spacing:-0.03em;color:var(--navy);max-width:20em;margin-top:16px;}
+.uw-cred{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:52px;}
+.uw-cred .c{padding:26px 0 0;border-top:2px solid var(--navy);}
+.uw-cred .c .n{font-family:var(--disp);font-size:19px;font-weight:600;color:var(--navy);margin-bottom:12px;letter-spacing:-0.01em;}
+.uw-cred .c p{font-size:13.5px;color:#333B47;line-height:1.6;}
+
+/* ---- Portfolio ---- */
+.holdings{width:100%;border-collapse:collapse;}
+.holdings thead th{text-align:left;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);padding:0 20px 16px 0;border-bottom:2px solid var(--line-strong);}
+.holdings tbody td{padding:28px 20px 28px 0;border-bottom:1px solid var(--line);font-size:15px;color:#2C3440;vertical-align:top;}
+.holdings .co{font-family:var(--disp);font-size:22px;font-weight:700;color:var(--navy);letter-spacing:-0.02em;}
+.holdings .co small{display:block;font-family:var(--sans);font-size:13px;font-weight:400;color:var(--slate);letter-spacing:0;margin-top:7px;line-height:1.55;}
+.holdings .placeholder .co{color:var(--slate);font-style:italic;}
+.note{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--slate);max-width:56em;line-height:1.8;}
+
+/* ---- Investors ---- */
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:56px;margin-bottom:76px;}
+.inv-cell{padding:26px 0 0;border-top:2px solid var(--navy);}
+.inv-cell .n{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.18em;margin-bottom:16px;}
+.inv-cell h3{font-size:20px;margin-bottom:12px;letter-spacing:-0.02em;}
+.inv-cell p{font-size:14.5px;color:#333B47;line-height:1.65;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-l .lede{font-family:var(--disp);font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:1.12;letter-spacing:-0.025em;color:var(--navy);margin-bottom:20px;}
+.contact-l p{font-size:16px;color:#2C3440;margin-bottom:26px;}
+.cd{padding:22px 0;border-bottom:1px solid var(--line);}
+.cd:first-of-type{border-top:2px solid var(--line-strong);}
+.cd .l{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.cd .v{font-family:var(--disp);font-size:19px;font-weight:700;color:var(--navy);letter-spacing:-0.01em;}
+.cd .v a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold);}
+.field{margin-bottom:30px;}
+.field label{display:block;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:12px;}
+.field input,.field textarea,.field select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-mid);font-family:var(--sans);font-size:16px;color:var(--navy);padding:10px 0 12px;outline:none;transition:border-color .25s ease;resize:vertical;}
+.field input:focus,.field textarea:focus,.field select:focus{border-bottom-color:var(--gold);}
+.form-status{margin-top:18px;font-size:13px;font-weight:500;color:var(--gold);}
+
+/* ---- Footer ---- */
+footer{background:var(--navy);color:var(--paper);padding:88px 0 44px;position:relative;overflow:hidden;}
+footer::after{content:none;}
+.foot-top{position:relative;z-index:2;display:grid;grid-template-columns:5fr 3fr 4fr;gap:56px;padding-bottom:52px;border-bottom:1px solid var(--line-dk);}
+.foot-mark{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.14em;color:var(--paper);text-transform:uppercase;}
+.foot-mark .div{color:var(--gold-2);}
+.foot-tag{margin-top:18px;font-size:14px;color:rgba(251,250,246,.62);max-width:28em;line-height:1.8;}
+.foot-col h5{font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-2);margin-bottom:18px;}
+.foot-col ul{list-style:none;}
+.foot-col li{margin-bottom:11px;}
+.foot-col a{font-size:14px;color:rgba(251,250,246,.8);text-decoration:none;cursor:pointer;}
+.foot-col a:hover{color:var(--gold-2);}
+.foot-col p{font-size:14px;color:rgba(251,250,246,.8);line-height:1.9;}
+.foot-col p a{color:rgba(251,250,246,.8);text-decoration:none;border-bottom:1px solid var(--gold-2);}
+.foot-bottom{position:relative;z-index:2;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:32px;font-size:12px;color:rgba(251,250,246,.5);letter-spacing:.04em;}
+.foot-disc{position:relative;z-index:2;padding-top:20px;font-size:11px;color:rgba(251,250,246,.4);line-height:1.75;max-width:74em;}
+
+/* ---- Reveal ---- */
+.reveal{opacity:1;transform:none;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+/* ---- Focus ---- */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* ---- Responsive ---- */
+@media (max-width:1080px){
+  .intro{grid-template-columns:1fr;gap:44px;}
+  .principles,.model,.uw-cred,.inv-grid{grid-template-columns:1fr 1fr;column-gap:40px;}
+  .model .step + .step{border-left:none;padding-left:0;}
+  .model .step{padding:30px 0 0;border-top:1px solid var(--line-dk);}
+  .band-split{grid-template-columns:1fr;}
+  .band-copy{padding:80px 56px;}
+  .band-img{min-height:360px;}
+  .band-img::before{background:linear-gradient(0deg,var(--navy) 0%,transparent 50%);}
+  .team-grid,.contact-grid{grid-template-columns:1fr;gap:56px;}
+  .partner-solo{grid-template-columns:1fr;gap:36px;}
+  .partner-solo .member .photo{max-width:340px;}
+  .analyst-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  .stats-band{grid-template-columns:1fr;}
+  .svc{grid-template-columns:1fr;gap:24px;}
+}
+@media (max-width:680px){
+  nav{padding:16px 22px;}
+  nav.solid{padding:12px 22px;}
+  .nav-links{position:fixed;inset:0;background:var(--navy);flex-direction:column;justify-content:center;gap:30px;display:none;}
+  .nav-links.open{display:flex;}
+  .nav-links a{color:var(--paper) !important;font-size:16px;}
+  .menu-btn{display:block;z-index:101;position:relative;color:var(--navy);}
+  nav.solid .menu-btn{color:var(--navy);}
+  .wrap,.wrap-tight{padding:0 22px;}
+  section{padding:70px 0;}
+  .hero-inner{padding:130px 22px 70px;}
+  .hero-stats .s{padding-right:26px;margin-right:26px;}
+  .principles,.model,.uw-cred,.inv-grid{grid-template-columns:1fr;}
+  .idx-row{grid-template-columns:44px 1fr;gap:16px;}
+  .idx-row p,.idx-row .arrow{display:none;}
+  .band-copy{padding:60px 22px;}
+  .page-head{padding:150px 0 64px;}
+  .analyst-grid{grid-template-columns:1fr;}
+  .foot-top{grid-template-columns:1fr;gap:32px;}
+  .holdings thead{display:none;}
+  .holdings tbody td{display:block;padding:5px 0;border-bottom:none;}
+  .holdings tbody tr{display:block;padding:24px 0;border-bottom:1px solid var(--line);}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="wordmark" onclick="go('home')">BASTION<span class="div">BRIDGE</span> CAPITAL</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a data-page="about" onclick="go('about')">About</a></li>
+    <li><a data-page="strategies" onclick="go('strategies')">Approach</a></li>
+    <li><a data-page="team" onclick="go('team')">Team</a></li>
+    <li><a data-page="portfolio" onclick="go('portfolio')">Portfolio</a></li>
+    <li><a data-page="investors" onclick="go('investors')" class="cta">Investors</a></li>
+  </ul>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main id="page-home" class="page visible">
+
+  <header class="hero">
+    <div class="hero-bg"><img src="images/bridge.jpg" alt=""></div>
+    <div class="hero-inner">
+      <span class="eyebrow">Private Equity</span>
+      <h1>We acquire and build businesses meant to <span class="accent">outlast us.</span></h1>
+      <p class="hero-sub">Bastion Bridge Capital acquires established, cash-generative companies through
+      dedicated special purpose vehicles, then partners with management to compound value over the long
+      term. Disciplined price. Conservative structure. Permanent intent.</p>
+      <div class="hero-actions">
+        <a class="btn on-dark" onclick="go('strategies')">Our Approach</a>
+        <a class="btn ghost-dk" onclick="go('investors')">For Investors</a>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div class="intro-l reveal">
+          <span class="eyebrow">The Firm</span>
+          <h2>A private equity firm built on value and patience.</h2>
+          <p class="tag">We buy good businesses at disciplined prices and hold them for the long term.</p>
+        </div>
+        <div class="intro-r reveal">
+          <p class="big">Bastion Bridge Capital acquires control and significant minority positions in
+          established, cash-generative companies.</p>
+          <p>We focus on essential businesses with durable demand, defensible positions, and real room to
+          improve, the kind of companies that reward patient ownership rather than financial engineering.
+          Each acquisition is made through a <strong>dedicated special purpose vehicle</strong>, giving our
+          investors clear, deal-by-deal transparency into exactly what they own.</p>
+          <p>Our edge is not leverage. It is underwriting discipline, operational partnership, and a long
+          time horizon. We define the downside before the upside, structure every deal conservatively, and
+          work alongside management to build enduring value.</p>
+        </div>
+      </div>
+
+      <div class="principles reveal">
+        <div class="p-cell"><div class="n">01</div><h3>Value first</h3><p>Every acquisition begins with an independent estimate of intrinsic worth. Price is negotiated; value is underwritten.</p></div>
+        <div class="p-cell"><div class="n">02</div><h3>Downside defined</h3><p>We ask what we can lose before what we can make. Conservative structure, honest reserves, sensible leverage.</p></div>
+        <div class="p-cell"><div class="n">03</div><h3>Operational partnership</h3><p>We back management and work beside them, improving the business rather than merely owning it.</p></div>
+        <div class="p-cell"><div class="n">04</div><h3>Aligned capital</h3><p>Deal-by-deal SPVs mean our investors know exactly what they own, and we invest alongside them.</p></div>
+        <div class="p-cell"><div class="n">05</div><h3>Long horizon</h3><p>We buy to own. Value compounds over years, not quarters, and we hold accordingly.</p></div>
+        <div class="p-cell"><div class="n">06</div><h3>Candor</h3><p>Plain accounting and honest reporting to every partner, in good years and difficult ones alike.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK STATEMENT BAND: SPV -->
+  <section class="dark band-statement">
+    <div class="wrap">
+      <div class="bs-inner reveal">
+        <span class="eyebrow on-dark">How We Invest</span>
+        <h2>Every acquisition, its own vehicle.</h2>
+        <p>Rather than a blind pool, Bastion Bridge acquires each company through a dedicated special
+        purpose vehicle. Investors see the specific business, the price, the structure, and the thesis
+        before they commit, and they participate deal by deal, a more transparent, more aligned way to
+        build a portfolio.</p>
+        <div class="actions"><a class="btn on-dark" onclick="go('about')">The SPV Model</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH index -->
+  <section>
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>Four ways we build the portfolio.</h2>
+      </div>
+      <div class="idx-list reveal">
+        <div class="idx-row"><span class="num">01</span><h3>Control Buyouts</h3><p>Acquiring controlling stakes in established, cash-generative companies, then partnering with management on operational and capital-allocation improvements under patient ownership.</p><span class="arrow">&rarr;</span></div>
+        <div class="idx-row"><span class="num">02</span><h3>Growth &amp; Minority Equity</h3><p>Significant minority positions in high-potential companies, providing capital and strategic support to unlock the next stage of growth without taking control.</p><span class="arrow">&rarr;</span></div>
+        <div class="idx-row"><span class="num">03</span><h3>Founder Successions</h3><p>A respectful, lasting home for owners planning succession, preserving what they built while professionalizing the business for its next chapter.</p><span class="arrow">&rarr;</span></div>
+        <div class="idx-row"><span class="num">04</span><h3>Buy &amp; Build</h3><p>Backing strong platforms and supporting disciplined add-on acquisitions that expand capability, geography, and scale over a long hold.</p><span class="arrow">&rarr;</span></div>
+      </div>
+      <div style="margin-top:52px;" class="reveal"><a class="btn ghost" onclick="go('strategies')">Explore Our Approach</a></div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote">
+    <div class="wrap">
+      <div class="inner reveal">
+        <blockquote>Figure out the value of something, <span class="q">and then pay a lot less.</span></blockquote>
+        <div class="attr">Joel Greenblatt &middot; A standard we invest by</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main id="page-about" class="page">
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">About</span>
+      <h1>A private equity firm built to compound capital across cycles.</h1>
+      <p>Bastion Bridge Capital is a value-oriented private equity firm. We acquire and build durable,
+      cash-generative businesses through dedicated special purpose vehicles, and we hold them for the long
+      term.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div class="intro-l reveal">
+          <span class="eyebrow">Philosophy</span>
+          <h2>What it is worth, and what we pay.</h2>
+        </div>
+        <div class="intro-r reveal">
+          <p>We acquire <strong>control and significant minority positions in established, cash-generative
+          companies</strong>, at prices that leave room for conservative financing and reinvestment. The
+          question is always the same: what is the business worth, and what are we paying?</p>
+          <p>Our edge is not leverage. It is underwriting discipline, operational partnership, and a long
+          horizon. We define the downside before the upside, and we build alongside management rather than
+          around them.</p>
+          <p>The result is a firm built to compound capital across cycles, on behalf of investors who share
+          our long view.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPV MODEL, dark -->
+  <section class="dark">
+    <div class="wrap">
+      <div class="shead reveal">
+        <span class="eyebrow on-dark">The SPV Model</span>
+        <h2>Transparent, aligned, deal by deal.</h2>
+        <p style="color:rgba(251,250,246,.8);margin-top:22px;font-size:16.5px;max-width:44em;">Bastion Bridge
+        acquires each business through a dedicated special purpose vehicle rather than a blind pool. Investors
+        evaluate and commit to specific opportunities, one at a time, with full visibility into the business,
+        the price, and the structure.</p>
+      </div>
+      <div class="model reveal">
+        <div class="step"><div class="num">01 &middot; SOURCE</div><h3>Identify</h3><p>We source essential, cash-generative businesses that fit our criteria, through proprietary relationships and disciplined screening.</p></div>
+        <div class="step"><div class="num">02 &middot; UNDERWRITE</div><h3>Diligence</h3><p>We underwrite conservatively, define the downside, and structure the vehicle before any capital is called.</p></div>
+        <div class="step"><div class="num">03 &middot; SYNDICATE</div><h3>Form the SPV</h3><p>Investors review the specific opportunity and commit deal by deal, into a vehicle dedicated to that single company.</p></div>
+        <div class="step"><div class="num">04 &middot; BUILD</div><h3>Own &amp; improve</h3><p>We close, partner with management, and compound value over a long hold, reporting plainly throughout.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <div class="inner reveal">
+        <blockquote>Figure out the value of something, <span class="q">and then pay a lot less.</span></blockquote>
+        <div class="attr">Joel Greenblatt &middot; A standard we invest by</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= APPROACH / STRATEGIES ================= -->
+<main id="page-strategies" class="page">
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Approach</span>
+      <h1>Control equity in businesses worth owning for the long term.</h1>
+      <p>We concentrate on established, cash-generative companies where disciplined ownership and operational
+      partnership can compound value over years, not quarters, each acquired through its own vehicle.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap-tight">
+      <div class="svc reveal"><div><div class="idx">01</div><h2>Control Buyouts</h2></div><div class="svc-body">
+        <p>We acquire controlling stakes in established, cash-generative companies and take an active ownership role. Working alongside management, we implement operational improvements, sharpen capital allocation, and pursue strategic initiatives that build durable value, while mitigating downside risk through conservative underwriting and careful deal structuring. We buy to own for the long term, not to flip.</p>
+      </div></div>
+      <div class="svc reveal"><div><div class="idx">02</div><h2>Growth &amp; Minority Equity</h2></div><div class="svc-body">
+        <p>Where control is neither available nor appropriate, we take significant minority positions in high-potential companies. We provide growth capital, strategic insight, and governance support, partnering with founders and management teams to unlock the next stage of the business while keeping their vision and leadership intact.</p>
+      </div></div>
+      <div class="svc reveal"><div><div class="idx">03</div><h2>Founder Successions</h2></div><div class="svc-body">
+        <p>Many of the best businesses are owned by founders and families weighing what comes next. We offer a respectful, lasting home: continuity for employees and customers, fair terms for the seller, and the patience to professionalize and strengthen the company without dismantling what made it work.</p>
+      </div></div>
+      <div class="svc reveal"><div><div class="idx">04</div><h2>Buy &amp; Build</h2></div><div class="svc-body">
+        <p>We back strong platform companies and support a disciplined program of add-on acquisitions, expanding capability, geography, and scale over a long hold. Each add-on is underwritten on its own merits and integrated with care, so that growth compounds value rather than complexity.</p>
+      </div></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= TEAM ================= -->
+<main id="page-team" class="page">
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Team</span>
+      <h1>Operators and investors, not asset gatherers.</h1>
+      <p>Bastion Bridge Capital is built on transaction and research experience across private and public
+      markets, applied with a single private equity discipline.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="partner-solo">
+        <div class="member reveal">
+          <div class="photo"><img src="images/bryan-perez.jpg" alt="Bryan Perez, Managing Partner"></div>
+          <h3>Bryan Perez</h3>
+          <div class="role">Managing Partner</div>
+          <p>Bryan leads Bastion Bridge Capital. His background is in M&amp;A investment banking across real
+          estate, consumer, healthcare, and industrials, advising boards on strategic alternatives spanning
+          public and private markets, including sponsor-backed portfolio companies.</p>
+          <p>His transaction experience includes complex public restructurings, carve-outs, take-privates,
+          hostile bids, and other strategic transactions, as well as internal corporate growth
+          acquisitions, the situations where value and price most often diverge.</p>
+        </div>
+      </div><!-- /partner-solo -->
+
+      <div class="analysts reveal">
+        <span class="eyebrow">Analysts</span>
+        <div class="analyst-grid">
+          <div class="member analyst">
+            <div class="photo"><img src="images/tyrus-burton.jpg" alt="Tyrus L. Burton Jr."></div>
+            <h3>Tyrus L. Burton Jr.</h3>
+            <div class="role">Private Equity Analyst Intern</div>
+            <p>Tyrus supports the firm's diligence and financial analysis across prospective acquisitions. He
+            is completing a Bachelor of Accountancy on the CPA track at Mississippi State University, oriented
+            toward transaction advisory and financial due diligence, with public accounting internship
+            experience across both audit and tax.</p>
+            <p>A former collegiate football player, he brings that same discipline to the technical work,
+            building Python tools around real financial data to bridge accounting and analysis. He holds the
+            FINRA Securities Industry Essentials (SIE) certification.</p>
+          </div>
+          <div class="member analyst">
+            <div class="photo"><img src="images/audrey-murillo.jpg" alt="Audrey Murillo"></div>
+            <h3>Audrey Murillo</h3>
+            <div class="role">Private Equity Analyst Intern</div>
+            <p>Audrey supports the firm's diligence and financial modeling, contributing valuation work and
+            company research across prospective acquisitions. She holds a Bachelor of Business Administration
+            in Finance from Texas A&amp;M University, where she performed equity research for the
+            student-managed Reveille Fund.</p>
+            <p>Her background includes an alternative investments internship at Nationwide and hands-on
+            experience with Bloomberg, Capital IQ, and Refinitiv Eikon, alongside the Bloomberg Market
+            Concepts certification.</p>
+          </div>
+          <div class="member analyst">
+            <div class="photo"><img src="images/grigore-turcanu.jpg" alt="Grigore Turcanu"></div>
+            <h3>Grigore Turcanu</h3>
+            <div class="role">Private Equity Analyst Intern</div>
+            <p>Grigore supports diligence and financial analysis across prospective acquisitions, with a
+            focus on valuation and market research. He is a finance student at Concordia University's John
+            Molson School of Business, where he competed in the Rotman International Trading Competition and
+            trades as a John Molson Trading League analyst.</p>
+            <p>He holds the Bloomberg Market Concepts certification and brings a strong interest in capital
+            markets, corporate finance, and M&amp;A to the firm's underwriting work.</p>
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ================= PORTFOLIO ================= -->
+<main id="page-portfolio" class="page">
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Portfolio</span>
+      <h1>What we currently hold.</h1>
+      <p>A record of the companies Bastion Bridge Capital owns and stewards, each acquired through a
+      dedicated special purpose vehicle. Reported plainly, and updated as the portfolio grows.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <table class="holdings">
+        <thead>
+          <tr>
+            <th style="width:40%">Company</th>
+            <th style="width:22%">Investment</th>
+            <th style="width:20%">Sector</th>
+            <th style="width:18%">Since</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="placeholder">
+            <td class="co">Inaugural acquisition &mdash; forthcoming
+              <small>The first portfolio company will be listed here upon close.</small>
+            </td>
+            <td>Control Buyout</td>
+            <td>Pending</td>
+            <td>Pending</td>
+          </tr>
+          <!-- Add holdings as rows:
+          <tr>
+            <td class="co">Company Name<small>One-line description of the business.</small></td>
+            <td>Control Buyout</td>
+            <td>Industrials</td>
+            <td>2026</td>
+          </tr>
+          -->
+        </tbody>
+      </table>
+      <div class="note">
+        Bastion Bridge Capital does not disclose transactions in process. Holdings are added to this page at
+        the firm's discretion. Nothing here is an offer of any security.
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= INVESTORS ================= -->
+<main id="page-investors" class="page">
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Investors</span>
+      <h1>Invest deal by deal, alongside the firm.</h1>
+      <p>Bastion Bridge Capital partners with accredited investors who share a long horizon. Through dedicated
+      special purpose vehicles, you evaluate and commit to specific opportunities, with full transparency
+      into what you own. Access to specific opportunities requires verification of accredited status.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="inv-grid reveal">
+        <div class="inv-cell"><div class="n">01</div><h3>Deal-by-deal</h3><p>Each acquisition is its own SPV. You see the business, the price, and the thesis before you commit, no blind pool.</p></div>
+        <div class="inv-cell"><div class="n">02</div><h3>Aligned</h3><p>We invest our own capital alongside our partners and structure every vehicle so we succeed or struggle together.</p></div>
+        <div class="inv-cell"><div class="n">03</div><h3>Transparent</h3><p>Clear reporting, honest accounting, and candid communication about what we own, why, and how it is performing.</p></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-l reveal">
+          <span class="eyebrow">Reach Out</span>
+          <p class="lede">Request access to the firm.</p>
+          <p>Prospective investors and their advisors can introduce themselves below or by email. We respond
+          to every serious inquiry, in confidence.</p>
+          <div class="cd"><div class="l">Investor Relations</div><div class="v"><a href="mailto:investors@bastionbridgecapital.com">investors@bastionbridgecapital.com</a></div></div>
+          <div class="cd"><div class="l">On X</div><div class="v"><a href="https://x.com/BastionBCapMgmt" target="_blank" rel="noopener">@BastionBCapMgmt</a></div></div>
+          <div class="note" style="margin-top:34px;">Bastion Bridge Capital offers securities only to verified accredited investors, through definitive offering documents. This page is informational and is not itself an offer to sell or a solicitation to buy any security; no investment may be made except by an accredited investor whose status has been verified.</div>
+        </div>
+
+        <div class="reveal">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-type">Investor Type</label>
+            <select id="f-type">
+              <option value="">Select one</option>
+              <option>Individual / Family Office</option>
+              <option>Registered Investment Advisor</option>
+              <option>Institutional Investor</option>
+              <option>Fund of Funds</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-accred">Accredited Investor Status</label>
+            <select id="f-accred">
+              <option value="">Select one</option>
+              <option>I am an accredited investor</option>
+              <option>Not yet accredited / unsure</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-message">Message</label><textarea id="f-message" rows="5"></textarea></div>
+          <button class="btn gold" onclick="sendInquiry()">Request Access</button>
+          <div class="form-status" id="formStatus"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-mark">BASTION<span class="div">BRIDGE</span> CAPITAL</div>
+        <p class="foot-tag">A value-driven private equity firm acquiring and building durable,
+        cash-generative businesses through dedicated special purpose vehicles.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a onclick="go('about')">About</a></li>
+          <li><a onclick="go('strategies')">Approach</a></li>
+          <li><a onclick="go('team')">Team</a></li>
+          <li><a onclick="go('portfolio')">Portfolio</a></li>
+          <li><a onclick="go('investors')">Investors</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <p><a href="mailto:investors@bastionbridgecapital.com">investors@bastionbridgecapital.com</a></p>
+        <p style="margin-top:12px;"><a href="https://x.com/BastionBCapMgmt" target="_blank" rel="noopener">@BastionBCapMgmt</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>&copy; 2026 Bastion Bridge Capital. All rights reserved.</div>
+      <div>Private Equity</div>
+    </div>
+    <div class="foot-disc">
+      This website is for informational purposes only and does not constitute an offer to sell, or a
+      solicitation of an offer to buy, any security or investment product, nor investment, legal, or tax
+      advice. Any offering is made only to verified accredited investors through definitive offering documents.
+      Investing involves risk, including the possible loss of principal. Past performance is not indicative
+      of future results.
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const navLinks = document.getElementById('navLinks');
+
+function go(page){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+  document.getElementById('page-' + page).classList.add('visible');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.page === page));
+  navLinks.classList.remove('open');
+  window.scrollTo({top:0,behavior:'auto'});
+  updateNav();
+  runReveal();
+}
+function updateNav(){ nav.classList.toggle('solid', window.scrollY > 20); }
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+document.getElementById('menuBtn').addEventListener('click', () => navLinks.classList.toggle('open'));
+
+/* Scroll reveal */
+let io;
+function runReveal(){
+  if (io) io.disconnect();
+  io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.page.visible .reveal:not(.in)').forEach(el=>io.observe(el));
+}
+runReveal();
+
+function sendInquiry(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const type=document.getElementById('f-type').value;
+  const accred=document.getElementById('f-accred').value;
+  const message=document.getElementById('f-message').value.trim();
+  const status=document.getElementById('formStatus');
+  if(!name||!email){ status.textContent='Please include your name and email.'; return; }
+  const subject='Investor Inquiry: ' + (type || 'Bastion Bridge Capital');
+  const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nInvestor type: '+(type||'n/a')+'\nAccredited status: '+(accred||'n/a')+'\n\n'+message);
+  window.location.href='mailto:investors@bastionbridgecapital.com?subject='+encodeURIComponent(subject)+'&body='+body;
+  status.textContent='Your email client has been opened with your details ready to send.';
+}
+</script>
+</body>
+</html>
