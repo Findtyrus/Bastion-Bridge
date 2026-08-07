@@ -92,7 +92,7 @@ section{padding:110px 0;}
 .hero-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:150px 56px 90px;}
 .hero .eyebrow{color:var(--gold-2);}
 .hero .eyebrow::before{background:var(--gold-2);}
-.hero h1{color:var(--paper);font-size:clamp(42px,5.8vw,84px);line-height:1.0;font-weight:800;letter-spacing:-0.035em;max-width:13em;}
+.hero h1{color:var(--paper);font-size:clamp(42px,5.8vw,84px);line-height:1.0;font-weight:800;letter-spacing:-0.035em;max-width:13em;overflow-wrap:break-word;}
 .hero h1 .accent{color:var(--gold-2);}
 .hero-sub{margin-top:32px;font-size:17px;line-height:1.75;color:rgba(251,250,246,.82);max-width:36em;font-weight:400;}
 .hero-actions{margin-top:44px;display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
@@ -293,24 +293,42 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .stats-band{grid-template-columns:1fr;}
   .svc{grid-template-columns:1fr;gap:24px;}
 }
+@media (max-width:480px){
+  .analyst-grid{grid-template-columns:1fr;gap:32px;}
+  .member.analyst .photo{max-width:320px;margin:0 auto;}
+  .member.analyst h3,.member.analyst .role,.member.analyst p{text-align:left;}
+}
 @media (max-width:680px){
-  nav{padding:16px 22px;}
-  nav.solid{padding:12px 22px;}
+  nav{padding:16px 20px;}
+  nav.solid{padding:12px 20px;}
+  .wordmark{font-size:16px;letter-spacing:.1em;}
   .nav-links{position:fixed;inset:0;background:var(--navy);flex-direction:column;justify-content:center;gap:30px;display:none;}
   .nav-links.open{display:flex;}
   .nav-links a{color:var(--paper) !important;font-size:16px;}
-  .menu-btn{display:block;z-index:101;position:relative;color:var(--navy);}
+  .menu-btn{display:block;z-index:101;position:relative;color:var(--paper);}
   nav.solid .menu-btn{color:var(--navy);}
+  nav.menu-open .menu-btn,
+  nav:has(.nav-links.open) .menu-btn{color:var(--paper);}
+  nav.menu-open .wordmark,
+  nav:has(.nav-links.open) .wordmark{color:var(--paper);z-index:101;}
   .wrap,.wrap-tight{padding:0 22px;}
   section{padding:70px 0;}
-  .hero-inner{padding:130px 22px 70px;}
-  .hero-stats .s{padding-right:26px;margin-right:26px;}
+  .hero-inner{padding:120px 22px 64px;}
+  .hero h1{font-size:clamp(30px,8.5vw,42px);letter-spacing:-0.02em;max-width:100%;}
+  .hero-sub{font-size:15px;}
+  .hero-actions{gap:20px;}
   .principles,.model,.uw-cred,.inv-grid{grid-template-columns:1fr;}
   .idx-row{grid-template-columns:44px 1fr;gap:16px;}
   .idx-row p,.idx-row .arrow{display:none;}
-  .band-copy{padding:60px 22px;}
-  .page-head{padding:150px 0 64px;}
-  .analyst-grid{grid-template-columns:1fr;}
+  .band-copy{padding:56px 22px;}
+  .contact-grid{gap:44px;}
+  .page-head{padding:130px 0 56px;}
+  .page-head h1{font-size:clamp(28px,8vw,40px);}
+  .shead h2,.intro-l h2,.band-statement h2,.strat-head h2{font-size:clamp(26px,7.5vw,34px);}
+  .band-statement{padding:70px 0;}
+  .analyst-grid{grid-template-columns:1fr 1fr;gap:24px;}
+  .member.analyst h3{font-size:19px;}
+  .partner-solo .member .photo{max-width:300px;margin:0 auto;}
   .foot-top{grid-template-columns:1fr;gap:32px;}
   .holdings thead{display:none;}
   .holdings tbody td{display:block;padding:5px 0;border-bottom:none;}
@@ -759,6 +777,9 @@ function go(page){
   document.getElementById('page-' + page).classList.add('visible');
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.page === page));
   navLinks.classList.remove('open');
+  nav.classList.remove('menu-open');
+  document.body.style.overflow='';
+  var mb=document.getElementById('menuBtn'); if(mb) mb.textContent='Menu';
   window.scrollTo({top:0,behavior:'auto'});
   updateNav();
   runReveal();
@@ -767,7 +788,12 @@ function updateNav(){ nav.classList.toggle('solid', window.scrollY > 20); }
 window.addEventListener('scroll', updateNav, {passive:true});
 updateNav();
 
-document.getElementById('menuBtn').addEventListener('click', () => navLinks.classList.toggle('open'));
+document.getElementById('menuBtn').addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  nav.classList.toggle('menu-open', open);
+  document.getElementById('menuBtn').textContent = open ? 'Close' : 'Menu';
+  document.body.style.overflow = open ? 'hidden' : '';
+});
 
 /* Scroll reveal */
 let io;
